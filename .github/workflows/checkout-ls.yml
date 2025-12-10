@@ -1,21 +1,19 @@
-name: Checkout and List files
+name: CI Test
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
+  pull_request:
 
 jobs:
-  list_files:
+  build:
     runs-on: ubuntu-latest
 
     steps:
+      # 1) Репозиторийді жүктеу
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Show current directory
-        run: pwd
-
-      - name: List files in workspace
-        run: |
-          echo "Files in workspace:"
-          ls -la
+      # 2) Репозиторийдегі файлдарды шығару
+      - name: List repository files
+        run: ls -la
