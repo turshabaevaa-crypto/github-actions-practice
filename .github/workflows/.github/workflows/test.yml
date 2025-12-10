@@ -1,6 +1,6 @@
 name: Hello Workflow
 
-on: [push]
+on: push
 
 jobs:
   hello:
